@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {setFavMovie}from "./../store/actions/Fav"
 import { axiosInstance } from "../network/axiosConfig";
+import { axiosInstance2 } from "../network/axiosSearch";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -11,6 +12,7 @@ export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [color,setColor]=useState(false);
   let[pageNumber,setPageNumber]=useState(1)
+  let[searchValue,setSearchValue]=useState("")
   useEffect(() => {
     axiosInstance
       .get("/popular",{
@@ -21,6 +23,16 @@ export default function Movies() {
       .then((res) => setMovies(res.data.results))
       .catch((err) => console.log(err));
   }, [pageNumber]);
+  useEffect(() => {
+    axiosInstance2
+      .get("",{
+        params:{
+        query:searchValue
+        }
+      })
+      .then((res) => setMovies(res.data.results))
+      .catch((err) => console.log(err));
+  }, [searchValue]);
  const changePageNumer=()=>{
    if(pageNumber>1){
     setPageNumber(--pageNumber)
@@ -34,9 +46,17 @@ export default function Movies() {
     setColor(true);
     console.log(color)
   }
+  const handleSearch=(e)=>{
+    console.log(e.target.value);
+     setSearchValue(e.target.value);
+  }
   return (
       <>
     <Header/>
+    <form className="d-flex justify-content-center mt-3">
+        <input className="form-control me-2 w-50 " type="search" placeholder="Search" aria-label="Search" onChange={(event) =>handleSearch(event)}/>
+        <i class="fa-solid fa-magnifying-glass text-white mt-2 fs-5 ms-2"></i>
+      </form>
     <div className="container my-5">
     <div className="row">
         {movies.map((movie)=>{
