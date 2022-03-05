@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Movies from "./pages/Movies";
 import MoviesDetails from "./pages/MovieDetails";
 import NotFound from "./pages/Notfound";
+import Favorites from './pages/Favorites';
 function App() {
   return (
 <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
           <Route path={"/register"} exact component={Register} />
           <Route path={"/login"} exact component={Login} />
           <Route path={"/movie-details/:id"} exact component={MoviesDetails} />
+          <Route path={"/favorites"} exact component={Favorites} />
           <Route path={"*"} component={NotFound} /> 
         </Switch>
 </BrowserRouter>

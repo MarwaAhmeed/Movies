@@ -11,11 +11,9 @@ export default function MovieDetails() {
       .then((res) => setMovieDetails(res.data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(movieeDetails)
-
   return (
     <>
-     <div className="container my-5">
+  <div className="container my-5">
     <div class="card mb-3 shadow">
     <img src={`https://image.tmdb.org/t/p/w500/${movieeDetails.poster_path}`} class="card-img-top" alt="..."/>
     <div className="card-body">
@@ -28,6 +26,14 @@ export default function MovieDetails() {
     </>
   );
 }
+
+
+
+
+
+
+
+
 
 // useHistory -> navigate between routes -> .push / .replace / .goback / .goForward
 // useLocation -> to get details about current [active] route

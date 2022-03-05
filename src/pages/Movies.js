@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import {setFavMovie}from "./../store/actions/Fav"
 import { axiosInstance } from "../network/axiosConfig";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 export default function Movies() {
+ // const fav = useSelector((state) => state.Fav.addFavorites);
+  const dispatch = useDispatch();
   const [movies, setMovies] = useState([]);
+  const [color,setColor]=useState(false);
   let[pageNumber,setPageNumber]=useState(1)
   useEffect(() => {
     axiosInstance
@@ -24,6 +29,11 @@ export default function Movies() {
   const increasePageNumer=()=>{
     setPageNumber(++pageNumber)
   }
+  const pushData =(movie)=>{
+    dispatch(setFavMovie(movie));
+    setColor(true);
+    console.log(color)
+  }
   return (
       <>
     <Header/>
@@ -35,6 +45,7 @@ export default function Movies() {
                 <div className="card border-0">
                 <Link to={`/movie-details/${movie.id}`} ><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top rounded-3" alt=""/></Link> 
                   <div className="card-body">
+                  <i className="fa-solid fa-heart fs-2" onClick={( )=>pushData(movie)} style={{color:color==true?"red":"white" }}></i>
                     {/* <h5 className="card-title fs-6">{movie.title}</h5> */}
                     {/* <p className="card-text text-muted">{movie.popularity}</p> */}
                   </div>
@@ -44,8 +55,8 @@ export default function Movies() {
         })}
     </div>
     <div>
-    <Link type="button" className="btn btn-outline-dark m-5 px-4" onClick={changePageNumer}>Prev</Link>
-    <Link type="button" className="btn btn-outline-dark px-4"onClick={increasePageNumer}>Next</Link>
+    <button type="button" className="btn btn-outline-danger m-5 px-4" onClick={changePageNumer}>Prev</button>
+    <button type="button" className="btn btn-outline-danger px-4"onClick={increasePageNumer}>Next</button>
     </div>
     </div>
     </>
