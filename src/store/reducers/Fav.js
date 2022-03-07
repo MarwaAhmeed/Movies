@@ -4,9 +4,7 @@ const INITIAL_STATE = {
   addFavorites: [],
 };
 
-export default function auth(state = INITIAL_STATE, action) {
-  // console.log(state)
-   console.log(action.payload)
+export default function fav(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SET_FAV:
       return {

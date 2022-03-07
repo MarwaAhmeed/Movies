@@ -1,8 +1,4 @@
-/* *{
-  background-image: url("../src/assets/wp1917147-netflix-wallpapers.jpg");
-  background-position: center;
+.Movies,.favorites{
+  background-color: black;
   background-size: cover;
-} */
-*{
-   background-color: black;
 }
