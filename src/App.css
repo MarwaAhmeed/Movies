@@ -1,4 +1,7 @@
 .Movies,.favorites{
   background-color: black;
-  background-size: cover;
+}
+.favorites{
+  background-color: black;
+  height:50rem;
 }

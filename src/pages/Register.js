@@ -88,6 +88,8 @@ const handelFormChange=(e)=>{
     }
 }
   return (
+    <div className='container'>
+      <div className='row d-flex flex-column align-content-center'>
     <Form className='w-50 m-5'onSubmit={(e) => handleFormSubmit(e)}>
          <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label >Name</Form.Label>
@@ -112,7 +114,7 @@ const handelFormChange=(e)=>{
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Confirm Password</Form.Label>
-        <Form.Control type="password" placeholder=" comfirm Password" name='confirmpassword' aria-describedby='userconfirmpass' value={userForm.confirmPass} onChange={(e)=>handelFormChange(e)} />
+        <Form.Control type="password" placeholder="Comfirm Your Password" name='confirmpassword' aria-describedby='userconfirmpass' value={userForm.confirmPass} onChange={(e)=>handelFormChange(e)} />
         <Form.Text id="userpass" className="text-danger">
             {userFormErrors.confirmPassErr}
         </Form.Text>
@@ -121,6 +123,8 @@ const handelFormChange=(e)=>{
         Submit
       </Button>
     </Form>
+    </div>
+    </div>
   );
 }
 export default Register;

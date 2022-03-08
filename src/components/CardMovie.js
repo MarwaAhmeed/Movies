@@ -21,13 +21,12 @@ export default function CardMovie(props){
             dispatch(setFavMovie(movie));
         }
       }
-
     return(
      <div className="col-lg-3">
         <div className="card border-0 bg-transparent text-white  pe-2 mb-5">
-           <Link to={`/movie-details/${movie.id}`} ><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top position-relative rounded-3" alt=""/></Link> 
+           <Link to={`/movie-details/${movie.id}`} ><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top position-relative rounded-3 cardImage" alt=""/></Link> 
             <span className="position-absolute top-0 end-0 badge">
-               <i className="fa-solid fa-heart  fs-3" onClick={( )=>pushData(movie)} style={{color:isFound?"red":"white"}}></i>
+               <i className="fa-solid fa-heart  fs-3" onClick={( )=>pushData(movie)} style={{color:isFound?"red":"white"}}></i>   
             </span>
            <div className="card-body">
             <h5 className="card-title fs-6">{movie.title}</h5>

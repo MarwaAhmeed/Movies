@@ -14,9 +14,9 @@ export default function MovieDetails() {
   
   return (
     <>
-  <div className="container-fluid h-100"style={{backgroundImage:`url(https://image.tmdb.org/t/p/w500/${movieeDetails.poster_path})`,backgroundPosition:"center",backgroundSize:"cover"}}>
+  <div className="container-fluid vh-100"style={{backgroundImage:`url(https://image.tmdb.org/t/p/w500/${movieeDetails.poster_path})`,backgroundPosition:"center",backgroundSize:"cover"}}>
   <div className="card text-white w-75 ms-5" style={{backgroundColor:"transparent"}}>
-  <div className="row g-0 my-5 ">
+  <div className="row g-0 mt-5 ">
     <div className="col-md-4">
       <img src={`https://image.tmdb.org/t/p/w500/${movieeDetails.poster_path}`} className="img-fluid rounded-3" alt="..."/>
     </div>
@@ -24,8 +24,8 @@ export default function MovieDetails() {
       <div className="card-body ms-3 mt-3">
         <h4 className="card-title text-capitalize mb-4">{movieeDetails.title}</h4>
         <p className="card-text mb-4 fw-light" style={{fontSize:"0.9rem"}}>{movieeDetails.overview}</p>
-        <p className="card-text">Rating : {movieeDetails.vote_average}</p>
-        <p className="card-text"><small className="text-muted">popularity: {movieeDetails.popularity}</small></p>
+        <p className="card-text">Rating : {movieeDetails.vote_average} <i class="fa-solid fa-star text-warning"></i></p>
+        <p className="card-text"><small className="text-muted">popularity: {movieeDetails.popularity} views</small></p>
       </div>
     </div>
   </div>

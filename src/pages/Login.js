@@ -50,7 +50,9 @@ const handelFormChange=(e)=>{
       })
     }
 }
-  return (
+return (
+    <div className='container'>
+     <div className="row d-flex flex-column align-content-center">
     <Form className='w-50 m-5'onSubmit={(e) => handleFormSubmit(e)}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label >Email address</Form.Label>
@@ -70,6 +72,8 @@ const handelFormChange=(e)=>{
         Submit
       </Button>
     </Form>
+    </div>
+ </div>
   );
 }
 export default Login;
