@@ -81,7 +81,7 @@ const handelFormChange=(e)=>{
         confirmPassErr:
         e.target.value.length===0
         ?"this filed is requird"
-         :e.target.value !=userForm.passowrd
+         :e.target.value !==userForm.passowrd
          ?"Doesnt Match"
          : null
       })
@@ -118,8 +118,8 @@ const handelFormChange=(e)=>{
         <Form.Text id="userpass" className="text-danger">
             {userFormErrors.confirmPassErr}
         </Form.Text>
-      </Form.Group>
-      <Button variant="primary" type="submit">
+          </Form.Group>
+      <Button variant="danger" type="submit">
         Submit
       </Button>
     </Form>
